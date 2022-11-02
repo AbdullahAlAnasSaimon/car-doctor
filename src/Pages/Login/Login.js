@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
+  const {login} = useContext(AuthContext);
 
   const handleLogin = event =>{
-    event.preventDefalut();
-
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    
+    login(email, password)
+    .then(result => {
+      const user = result.user;
+      console.log(user)
+    })
+    .catch(err => console.log(err))
   }
 
   return (
@@ -21,13 +33,13 @@ const Login = () => {
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
-              <input type="text" placeholder="email" className="input input-bordered" />
+              <input type="email" placeholder="email" name='email' className="input input-bordered" />
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <input type="text" placeholder="password" className="input input-bordered" />
+              <input type="password" placeholder="password" name='password' className="input input-bordered" />
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
               </label>
@@ -36,6 +48,7 @@ const Login = () => {
               <input type="submit" value="Login"  className="btn btn-primary"/>
             </div>
           </form>
+          <p className='text-center pb-10'>New to Genius Car? <Link className='text-orange-600 underline' to='/signup'>Create An Account</Link></p>
         </div>
       </div>
     </div>
