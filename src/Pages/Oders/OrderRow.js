@@ -40,7 +40,7 @@ const OrderRow = ({order, handleDelete, handleStatusUpdate}) => {
         </td>
         <td>Purple</td>
         <th>
-          <button onClick={() => handleStatusUpdate(_id)} className={`btn btn-xs text-gray-700 border-0 ${status ? "bg-green-300" : "bg-red-300"}`}>{status ? status : 'Pendingpm'}</button>
+          <button onClick={() => handleStatusUpdate(_id)} className={`btn btn-xs text-gray-700 border-0 ${status ? "bg-green-300" : "bg-red-300"}`}>{status ? status : 'Pending'}</button>
         </th>
       </tr>
   );

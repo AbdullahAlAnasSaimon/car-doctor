@@ -48,17 +48,17 @@ const Checkout = () => {
   }
 
   return (
-    <div className=' w-10/12 mx-auto'>
+    <div className=' w-10/12 mx-auto my-20'>
       <form onSubmit={handlePlaceOrder}>
-        <h2 className='text-3xl'>{title}</h2>
-        <h4 className='text-xl'>Total : ${price}</h4>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+        <h2 className='text-3xl my-5'>{title}</h2>
+        <h4 className='text-xl my-3'>Total : ${price}</h4>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 my-5'>
           <input name='firstName' type="text" placeholder="First name" className="input input-bordered w-full" />
           <input name='lastName' type="text" placeholder="Last name" className="input input-bordered w-full" />
           <input name='phone' type="number" placeholder="Your phone" className="input input-bordered w-full" required />
           <input name='email' type="email" placeholder="Your email" defaultValue={user?.email} className="input input-bordered w-full" readOnly />
         </div>
-        <textarea name='message' className="textarea textarea-bordered h-24 w-full" placeholder="Your Message"></textarea>
+        <textarea name='message' className="textarea textarea-bordered h-24 w-full mb-5" placeholder="Your Message"></textarea>
         <input className='btn' type="submit" value="Place Your Order" />
       </form>
     </div>
